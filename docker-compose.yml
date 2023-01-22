@@ -12,17 +12,18 @@ services:
     volumes:
       - ./website:/var/www/html
     networks:
-      - ulrich-networks
+      - nicolas-networks
   
   api:
-    image: student-age:v1
+    #image: student-age:v1
+    build: './simple_api/'
     volumes:
       - ./simple_api/student_age.json:/data/student_age.json
     ports:
       - "8500:5000"
     container_name: api-student
     networks:
-      - ulrich-networks
+      - nicolas-networks
 
 networks:
-  ulrich-networks:
+  nicolas-networks:
